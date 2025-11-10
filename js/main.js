@@ -149,6 +149,78 @@ if (heroImage) {
 }
 
 // ===========================
+// Research Modal
+// ===========================
+const researchLink = document.getElementById('researchLink');
+const researchModal = document.getElementById('researchModal');
+const researchPassword = document.getElementById('researchPassword');
+const errorMessage = document.getElementById('errorMessage');
+
+// Open research modal
+if (researchLink) {
+    researchLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openResearchModal();
+    });
+}
+
+function openResearchModal() {
+    researchModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Focus on password input after animation
+    setTimeout(() => {
+        researchPassword.focus();
+    }, 100);
+}
+
+function closeResearchModal() {
+    researchModal.classList.remove('active');
+    document.body.style.overflow = '';
+
+    // Reset form
+    researchPassword.value = '';
+    errorMessage.classList.remove('show');
+}
+
+// Check password
+function checkResearchPassword(e) {
+    e.preventDefault();
+
+    const password = researchPassword.value;
+
+    if (password === '1909') {
+        // Save to session storage
+        sessionStorage.setItem('authenticated', 'true');
+
+        // Redirect to research page
+        window.location.href = 'research/data.html';
+    } else {
+        // Show error
+        errorMessage.classList.add('show');
+        researchPassword.value = '';
+        researchPassword.focus();
+
+        // Shake animation
+        researchPassword.style.animation = 'shake 0.5s';
+        setTimeout(() => {
+            researchPassword.style.animation = '';
+        }, 500);
+    }
+}
+
+// Make functions global for onclick handlers
+window.closeResearchModal = closeResearchModal;
+window.checkResearchPassword = checkResearchPassword;
+
+// ESC key to close modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && researchModal.classList.contains('active')) {
+        closeResearchModal();
+    }
+});
+
+// ===========================
 // Console Easter Egg
 // ===========================
 console.log('%c👶 DIORA BABY', 'font-size: 24px; font-weight: bold; color: #8a7a5f;');

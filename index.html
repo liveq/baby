@@ -23,6 +23,7 @@
                 <li><a href="#products">제품</a></li>
                 <li><a href="#about">브랜드</a></li>
                 <li><a href="#contact">문의</a></li>
+                <li><a href="#" id="researchLink">연구</a></li>
             </ul>
         </div>
     </nav>
@@ -195,6 +196,27 @@
             </div>
         </div>
     </section>
+
+    <!-- Research Password Modal -->
+    <div class="research-modal" id="researchModal">
+        <div class="modal-overlay" onclick="closeResearchModal()"></div>
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeResearchModal()" aria-label="닫기">&times;</button>
+            <h3 class="modal-title">연구자료 접근</h3>
+            <p class="modal-description">비밀번호를 입력하세요</p>
+            <form id="researchForm" onsubmit="checkResearchPassword(event)">
+                <input
+                    type="password"
+                    id="researchPassword"
+                    class="password-input"
+                    placeholder="비밀번호"
+                    autocomplete="off"
+                >
+                <p class="error-message" id="errorMessage">비밀번호가 올바르지 않습니다</p>
+                <button type="submit" class="submit-btn">확인</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer" id="contact">
