@@ -1,0 +1,10 @@
+/* Additional index specific styles if needed */
+/* Most styling is in styles/global.css */
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}

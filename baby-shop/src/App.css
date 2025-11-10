@@ -1,0 +1,135 @@
+/* App Main Styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Reviews Section */
+.reviews-section {
+  padding: var(--spacing-3xl) 0;
+}
+
+.reviews-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: var(--bg-cream);
+  border-radius: var(--radius-xl);
+  min-height: 300px;
+}
+
+.placeholder-icon {
+  font-size: 80px;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.3;
+}
+
+.reviews-placeholder p {
+  font-size: var(--font-size-lg);
+  color: var(--text-tertiary);
+}
+
+/* Brand Story Section */
+.brand-story {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(
+    135deg,
+    var(--bg-cream) 0%,
+    var(--bg-beige) 100%
+  );
+}
+
+.brand-story-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+}
+
+.brand-story-text h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-bold);
+  color: var(--brand-gold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.brand-story-text h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.brand-story-text p {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xl);
+}
+
+.brand-values {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.brand-values li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.value-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-gold);
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-bold);
+  flex-shrink: 0;
+}
+
+.brand-values li span:last-child {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  font-weight: var(--font-medium);
+}
+
+.brand-story-image {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.brand-story-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .brand-story-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+  }
+
+  .brand-story-text h2 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .brand-story-text h3 {
+    font-size: var(--font-size-3xl);
+  }
+}

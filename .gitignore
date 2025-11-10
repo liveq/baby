@@ -1,22 +1,26 @@
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-*.temp
-
-# Node modules (if added later)
+# Dependencies
+baby-shop/node_modules/
 node_modules/
 
-# Cloudflare
-.wrangler/
+# Build
+baby-shop/build/
+
+# Environment
+baby-shop/.env.local
+baby-shop/.env.development.local
+baby-shop/.env.test.local
+baby-shop/.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Misc
+*.log
+.env
