@@ -149,74 +149,57 @@ if (heroImage) {
 }
 
 // ===========================
-// Research Modal
+// Floating Menu
 // ===========================
-const researchLink = document.getElementById('researchLink');
-const researchModal = document.getElementById('researchModal');
-const researchPassword = document.getElementById('researchPassword');
-const errorMessage = document.getElementById('errorMessage');
+const floatingMenuBtn = document.getElementById('floatingMenuBtn');
+const floatingMenu = document.getElementById('floatingMenu');
+const researchMenuLink = document.getElementById('researchMenuLink');
 
-// Open research modal
-if (researchLink) {
-    researchLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        openResearchModal();
+// Toggle floating menu
+if (floatingMenuBtn) {
+    floatingMenuBtn.addEventListener('click', () => {
+        const isActive = floatingMenu.classList.contains('active');
+
+        if (isActive) {
+            closeFloatingMenu();
+        } else {
+            openFloatingMenu();
+        }
     });
 }
 
-function openResearchModal() {
-    researchModal.classList.add('active');
+function openFloatingMenu() {
+    floatingMenu.classList.add('active');
+    floatingMenuBtn.classList.add('active');
     document.body.style.overflow = 'hidden';
-
-    // Focus on password input after animation
-    setTimeout(() => {
-        researchPassword.focus();
-    }, 100);
 }
 
-function closeResearchModal() {
-    researchModal.classList.remove('active');
+function closeFloatingMenu() {
+    floatingMenu.classList.remove('active');
+    floatingMenuBtn.classList.remove('active');
     document.body.style.overflow = '';
-
-    // Reset form
-    researchPassword.value = '';
-    errorMessage.classList.remove('show');
 }
 
-// Check password
-function checkResearchPassword(e) {
-    e.preventDefault();
+// Make function global for onclick
+window.closeFloatingMenu = closeFloatingMenu;
 
-    const password = researchPassword.value;
+// Research menu link
+if (researchMenuLink) {
+    researchMenuLink.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    if (password === '1909') {
-        // Save to session storage
+        // Save authenticated flag for research page
         sessionStorage.setItem('authenticated', 'true');
 
         // Redirect to research page
         window.location.href = 'research/data.html';
-    } else {
-        // Show error
-        errorMessage.classList.add('show');
-        researchPassword.value = '';
-        researchPassword.focus();
-
-        // Shake animation
-        researchPassword.style.animation = 'shake 0.5s';
-        setTimeout(() => {
-            researchPassword.style.animation = '';
-        }, 500);
-    }
+    });
 }
 
-// Make functions global for onclick handlers
-window.closeResearchModal = closeResearchModal;
-window.checkResearchPassword = checkResearchPassword;
-
-// ESC key to close modal
+// ESC key to close floating menu
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && researchModal.classList.contains('active')) {
-        closeResearchModal();
+    if (e.key === 'Escape' && floatingMenu.classList.contains('active')) {
+        closeFloatingMenu();
     }
 });
 

@@ -569,25 +569,71 @@ body {
 }
 
 /* ===========================
-   Research Password Modal
+   Floating Menu Button
    =========================== */
-.research-modal {
-    display: none;
+.floating-menu-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: var(--primary);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(138, 122, 95, 0.4);
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.floating-menu-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(138, 122, 95, 0.5);
+}
+
+.floating-menu-btn span {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.floating-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+}
+
+.floating-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.floating-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+}
+
+/* ===========================
+   Floating Menu
+   =========================== */
+.floating-menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
+    z-index: 9998;
+    display: none;
 }
 
-.research-modal.active {
-    display: flex;
+.floating-menu.active {
+    display: block;
 }
 
-.modal-overlay {
+.floating-menu-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -597,40 +643,41 @@ body {
     backdrop-filter: blur(8px);
 }
 
-.modal-box {
-    position: relative;
+.floating-menu-content {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
     background: var(--white);
-    border-radius: 20px;
-    padding: 48px;
-    max-width: 450px;
-    width: 90%;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: modalSlideIn 0.3s ease;
-    z-index: 10000;
+    border-radius: 16px;
+    padding: 24px;
+    min-width: 240px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideInUp 0.3s ease;
+    z-index: 9999;
 }
 
-@keyframes modalSlideIn {
+@keyframes slideInUp {
     from {
         opacity: 0;
-        transform: translateY(-30px) scale(0.95);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
 
-.modal-close-btn {
+.floating-menu-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 12px;
+    right: 12px;
     background: none;
     border: none;
-    font-size: 32px;
+    font-size: 24px;
     color: var(--text-light);
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -638,75 +685,73 @@ body {
     transition: all 0.3s ease;
 }
 
-.modal-close-btn:hover {
+.floating-menu-close:hover {
     background: var(--background);
     color: var(--text);
-    transform: rotate(90deg);
 }
 
-.modal-title {
-    font-family: var(--font-display);
-    font-size: 28px;
-    margin-bottom: 12px;
-    color: var(--text);
-}
-
-.modal-description {
+.floating-menu-title {
+    font-size: 14px;
+    font-weight: 600;
     color: var(--text-light);
-    margin-bottom: 32px;
-    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
 }
 
-#researchForm {
+.floating-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.floating-menu-list li {
+    margin-bottom: 8px;
+}
+
+.floating-menu-list li:last-child {
+    margin-bottom: 0;
+}
+
+.floating-menu-link {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.password-input {
-    width: 100%;
-    padding: 16px 20px;
-    font-size: 16px;
-    border: 2px solid var(--border);
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--background);
     border-radius: 12px;
-    font-family: var(--font-main);
+    text-decoration: none;
+    color: var(--text);
     transition: all 0.3s ease;
 }
 
-.password-input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(138, 122, 95, 0.1);
-}
-
-.error-message {
-    color: #dc2626;
-    font-size: 14px;
-    margin: -10px 0 0 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.error-message.show {
-    opacity: 1;
-}
-
-.submit-btn {
-    padding: 16px;
+.floating-menu-link:hover {
     background: var(--primary);
     color: var(--white);
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    transform: translateX(-4px);
 }
 
-.submit-btn:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(138, 122, 95, 0.3);
+.menu-icon {
+    font-size: 20px;
+}
+
+.menu-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .floating-menu-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+    }
+
+    .floating-menu-content {
+        bottom: 90px;
+        right: 20px;
+    }
 }
 
 /* ===========================

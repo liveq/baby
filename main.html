@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIORA BABY - 아이를 위한 첫 번째 선택</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <script>
+        // Check authentication
+        if (sessionStorage.getItem('baby_authenticated') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">DIORA BABY</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#products">제품</a></li>
+                <li><a href="#about">브랜드</a></li>
+                <li><a href="#contact">문의</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-subtitle">아이를 위한 첫 번째 선택</span>
+                <span class="hero-main">안전하고<br>부드러운 시작</span>
+            </h1>
+            <p class="hero-description">
+                DIORA BABY는 프리미엄 유아용품 브랜드입니다.<br>
+                어린이집 필수품부터 일상의 편안함까지, 아이의 하루를 함께합니다.
+            </p>
+            <a href="#products" class="cta-button">제품 보러가기</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://placehold.co/800x1000/faf8f5/8a7a5f?text=DIORA+BABY&font=noto-sans" alt="DIORA BABY">
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">아이의 편안한 하루를 위한 엄선된 제품</p>
+
+            <div class="product-grid">
+                <!-- Product 1: 낮잠이불 -->
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="https://placehold.co/600x600/e8f5e9/8a7a5f?text=Naptime+Bedding" alt="낮잠이불 세트">
+                        <div class="product-badge">어린이집 필수</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">낮잠이불 세트</h3>
+                        <p class="product-description">
+                            4계절 사용 가능한 리버서블 디자인<br>
+                            항균 처리 + 방수 보관가방 포함
+                        </p>
+                        <div class="product-features">
+                            <span class="feature-tag">KC인증</span>
+                            <span class="feature-tag">항균처리</span>
+                            <span class="feature-tag">4계절용</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="product-price">89,000원</span>
+                            <button class="product-button">자세히 보기</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: 무봉제 속옷 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-image">
+                        <img src="https://placehold.co/600x600/fce4ec/8a7a5f?text=Seamless+Underwear" alt="무봉제 속옷">
+                        <div class="product-badge">NEW</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">무봉제 속옷</h3>
+                        <p class="product-description">
+                            꿀잠을 위한 부드러운 착용감<br>
+                            유기농 면 100%, 봉제선 없는 디자인
+                        </p>
+                        <div class="product-features">
+                            <span class="feature-tag">무봉제</span>
+                            <span class="feature-tag">유기농면</span>
+                            <span class="feature-tag">저자극</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="product-price">24,900원</span>
+                            <button class="product-button">자세히 보기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Values Section -->
+    <section class="values" id="about">
+        <div class="container">
+            <h2 class="section-title">DIORA BABY가 약속하는 것</h2>
+
+            <div class="values-grid">
+                <div class="value-card" data-aos="fade-up">
+                    <div class="value-icon">🛡️</div>
+                    <h3 class="value-title">안전한 소재</h3>
+                    <p class="value-description">
+                        KC 인증을 받은 안전한 원단만 사용합니다.<br>
+                        유해물질 검사를 통과한 제품만 판매합니다.
+                    </p>
+                </div>
+
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-icon">🌿</div>
+                    <h3 class="value-title">친환경 제작</h3>
+                    <p class="value-description">
+                        유기농 면과 천연 소재를 우선 사용하여<br>
+                        아이와 지구 모두를 생각합니다.
+                    </p>
+                </div>
+
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-icon">💝</div>
+                    <h3 class="value-title">부모의 마음</h3>
+                    <p class="value-description">
+                        실제 부모들의 피드백을 반영하여<br>
+                        진정으로 필요한 제품을 만듭니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">고객님들의 이야기</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "어린이집 입학 준비하면서 구매했는데, 아이가 너무 좋아해요.
+                        세탁도 편하고 방수 가방 덕분에 매일 가방에 쏙 넣어 보내요."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>김○○</strong> 님 · 낮잠이불 세트
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "무봉제라 정말 부드러워요. 아이 피부가 예민한데
+                        이 속옷은 아무 문제 없이 잘 입고 있어요. 재구매 예정입니다!"
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>박○○</strong> 님 · 무봉제 속옷
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "출산 선물로 받았는데 품질이 정말 좋아요.
+                        디자인도 예쁘고 실용적이라 주변 엄마들한테도 추천했어요."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>이○○</strong> 님 · 낮잠이불 세트
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">아이를 위한 특별한 선택</h2>
+            <p class="cta-description">
+                DIORA BABY의 신제품과 특별 할인 소식을<br>
+                가장 먼저 받아보세요.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://www.instagram.com/" target="_blank" class="cta-btn primary">인스타그램 팔로우</a>
+                <a href="#contact" class="cta-btn secondary">문의하기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Menu Button -->
+    <button class="floating-menu-btn" id="floatingMenuBtn" aria-label="메뉴">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Floating Menu -->
+    <div class="floating-menu" id="floatingMenu">
+        <div class="floating-menu-overlay" onclick="closeFloatingMenu()"></div>
+        <div class="floating-menu-content">
+            <button class="floating-menu-close" onclick="closeFloatingMenu()" aria-label="닫기">&times;</button>
+            <h3 class="floating-menu-title">Admin Menu</h3>
+            <ul class="floating-menu-list">
+                <li>
+                    <a href="#" id="researchMenuLink" class="floating-menu-link">
+                        <span class="menu-icon">📊</span>
+                        <span class="menu-text">연구 자료</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">DIORA BABY</h3>
+                    <p class="footer-description">
+                        아이를 위한 첫 번째 선택<br>
+                        안전하고 부드러운 시작
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#products">낮잠이불 세트</a></li>
+                        <li><a href="#products">무봉제 속옷</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">브랜드 스토리</a></li>
+                        <li><a href="https://diora.co.kr" target="_blank">DIORA</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Instagram: @diora_baby</p>
+                    <p>Email: hello@diora.co.kr</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 DIORA BABY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
