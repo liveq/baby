@@ -3,188 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIORA Research - 비밀번호 입력</title>
+    <title>DIORA BABY - 아이를 위한 첫 번째 선택</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: #fafaf8;
-            color: #0a0a0a;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            color: #8a7a5f;
-            margin-bottom: 60px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .logo:hover {
-            color: #c9b896;
-        }
-
-        .login-container {
-            background: #ffffff;
-            padding: 60px 40px;
-            border-radius: 2px;
-            border: 1px solid #e8dcc8;
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 24px;
-            font-weight: 400;
-            color: #2a2a2a;
-            margin-bottom: 12px;
-        }
-
-        .subtitle {
-            font-size: 15px;
-            font-weight: 400;
-            color: #8a7a5f;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .input-group {
-            margin-bottom: 24px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            color: #2a2a2a;
-            margin-bottom: 8px;
-        }
-
-        input[type="password"] {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #e8dcc8;
-            border-radius: 2px;
-            font-size: 16px;
-            font-family: 'Noto Sans KR', sans-serif;
-            transition: border-color 0.3s ease;
-            background: #fafaf8;
-        }
-
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #c9b896;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: #8a7a5f;
-            color: #ffffff;
-            border: none;
-            border-radius: 2px;
-            font-size: 16px;
-            font-weight: 500;
-            font-family: 'Noto Sans KR', sans-serif;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: #c9b896;
-        }
-
-        .error-message {
-            color: #d65d5d;
-            font-size: 14px;
-            margin-top: 12px;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 28px;
-                margin-bottom: 40px;
-            }
-
-            .login-container {
-                padding: 40px 24px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            .subtitle {
-                font-size: 14px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <div class="logo" onclick="window.open('https://diora.co.kr', '_blank')">DIORA</div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">DIORA BABY</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#products">제품</a></li>
+                <li><a href="#about">브랜드</a></li>
+                <li><a href="#contact">문의</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="login-container">
-        <h1>연구자료 접근</h1>
-        <p class="subtitle">비밀번호를 입력하여 연구자료를 열람하세요.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-subtitle">아이를 위한 첫 번째 선택</span>
+                <span class="hero-main">안전하고<br>부드러운 시작</span>
+            </h1>
+            <p class="hero-description">
+                DIORA BABY는 프리미엄 유아용품 브랜드입니다.<br>
+                어린이집 필수품부터 일상의 편안함까지, 아이의 하루를 함께합니다.
+            </p>
+            <a href="#products" class="cta-button">제품 보러가기</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://placehold.co/800x1000/faf8f5/8a7a5f?text=DIORA+BABY&font=noto-sans" alt="DIORA BABY">
+        </div>
+    </section>
 
-        <form id="loginForm" onsubmit="checkPassword(event)">
-            <div class="input-group">
-                <label for="password">비밀번호</label>
-                <input type="password" id="password" name="password" placeholder="비밀번호 입력" required autofocus>
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">아이의 편안한 하루를 위한 엄선된 제품</p>
+
+            <div class="product-grid">
+                <!-- Product 1: 낮잠이불 -->
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="https://placehold.co/600x600/e8f5e9/8a7a5f?text=Naptime+Bedding" alt="낮잠이불 세트">
+                        <div class="product-badge">어린이집 필수</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">낮잠이불 세트</h3>
+                        <p class="product-description">
+                            4계절 사용 가능한 리버서블 디자인<br>
+                            항균 처리 + 방수 보관가방 포함
+                        </p>
+                        <div class="product-features">
+                            <span class="feature-tag">KC인증</span>
+                            <span class="feature-tag">항균처리</span>
+                            <span class="feature-tag">4계절용</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="product-price">89,000원</span>
+                            <button class="product-button">자세히 보기</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: 무봉제 속옷 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-image">
+                        <img src="https://placehold.co/600x600/fce4ec/8a7a5f?text=Seamless+Underwear" alt="무봉제 속옷">
+                        <div class="product-badge">NEW</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">무봉제 속옷</h3>
+                        <p class="product-description">
+                            꿀잠을 위한 부드러운 착용감<br>
+                            유기농 면 100%, 봉제선 없는 디자인
+                        </p>
+                        <div class="product-features">
+                            <span class="feature-tag">무봉제</span>
+                            <span class="feature-tag">유기농면</span>
+                            <span class="feature-tag">저자극</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="product-price">24,900원</span>
+                            <button class="product-button">자세히 보기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Values Section -->
+    <section class="values" id="about">
+        <div class="container">
+            <h2 class="section-title">DIORA BABY가 약속하는 것</h2>
+
+            <div class="values-grid">
+                <div class="value-card" data-aos="fade-up">
+                    <div class="value-icon">🛡️</div>
+                    <h3 class="value-title">안전한 소재</h3>
+                    <p class="value-description">
+                        KC 인증을 받은 안전한 원단만 사용합니다.<br>
+                        유해물질 검사를 통과한 제품만 판매합니다.
+                    </p>
+                </div>
+
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-icon">🌿</div>
+                    <h3 class="value-title">친환경 제작</h3>
+                    <p class="value-description">
+                        유기농 면과 천연 소재를 우선 사용하여<br>
+                        아이와 지구 모두를 생각합니다.
+                    </p>
+                </div>
+
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-icon">💝</div>
+                    <h3 class="value-title">부모의 마음</h3>
+                    <p class="value-description">
+                        실제 부모들의 피드백을 반영하여<br>
+                        진정으로 필요한 제품을 만듭니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">고객님들의 이야기</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "어린이집 입학 준비하면서 구매했는데, 아이가 너무 좋아해요.
+                        세탁도 편하고 방수 가방 덕분에 매일 가방에 쏙 넣어 보내요."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>김○○</strong> 님 · 낮잠이불 세트
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "무봉제라 정말 부드러워요. 아이 피부가 예민한데
+                        이 속옷은 아무 문제 없이 잘 입고 있어요. 재구매 예정입니다!"
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>박○○</strong> 님 · 무봉제 속옷
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "출산 선물로 받았는데 품질이 정말 좋아요.
+                        디자인도 예쁘고 실용적이라 주변 엄마들한테도 추천했어요."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>이○○</strong> 님 · 낮잠이불 세트
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">아이를 위한 특별한 선택</h2>
+            <p class="cta-description">
+                DIORA BABY의 신제품과 특별 할인 소식을<br>
+                가장 먼저 받아보세요.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://www.instagram.com/" target="_blank" class="cta-btn primary">인스타그램 팔로우</a>
+                <a href="#contact" class="cta-btn secondary">문의하기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">DIORA BABY</h3>
+                    <p class="footer-description">
+                        아이를 위한 첫 번째 선택<br>
+                        안전하고 부드러운 시작
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#products">낮잠이불 세트</a></li>
+                        <li><a href="#products">무봉제 속옷</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">브랜드 스토리</a></li>
+                        <li><a href="https://diora.co.kr" target="_blank">DIORA</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Instagram: @diora_baby</p>
+                    <p>Email: hello@diora.co.kr</p>
+                </div>
             </div>
 
-            <button type="submit" class="submit-btn">접속하기</button>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DIORA BABY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-            <p class="error-message" id="errorMessage">비밀번호가 올바르지 않습니다.</p>
-        </form>
-    </div>
-
-    <script>
-        function checkPassword(event) {
-            event.preventDefault();
-
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-
-            if (password === '1909') {
-                // 세션 스토리지에 인증 정보 저장
-                sessionStorage.setItem('authenticated', 'true');
-                // 연구자료 페이지로 이동
-                window.location.href = 'research.html';
-            } else {
-                errorMessage.classList.add('show');
-                document.getElementById('password').value = '';
-                document.getElementById('password').focus();
-            }
-        }
-
-        // 이미 인증된 경우 바로 연구자료 페이지로 이동
-        if (sessionStorage.getItem('authenticated') === 'true') {
-            window.location.href = 'research.html';
-        }
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
